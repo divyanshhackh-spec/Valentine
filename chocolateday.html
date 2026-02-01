@@ -23,27 +23,30 @@ body{
   justify-content:center;
   font-family:'Playfair Display',serif;
   color:#f8f2f4;
+  padding:20px;
+  overflow-x:hidden;
 
   background:
     linear-gradient(to bottom,rgba(0,0,0,.7),rgba(45,10,30,.85)),
-    url("https://img.freepik.com/free-photo/flat-lay-delicious-chocolate-tablets-arrangement_23-2149349242.jpg?semt=ais_hybrid&w=740&q=80")
+    url("https://img.freepik.com/free-photo/flat-lay-delicious-chocolate-tablets-arrangement_23-2149349242.jpg")
     center/cover no-repeat fixed;
 }
 
 /* BACK BUTTON */
 .back{
   position:fixed;
-  top:30px;
-  left:30px;
-  padding:10px 18px;
+  top:20px;
+  left:20px;
+  padding:8px 16px;
   border-radius:20px;
   background:rgba(255,255,255,.15);
   border:1px solid rgba(255,255,255,.3);
   color:#fff;
-  font-size:.9rem;
+  font-size:.85rem;
   cursor:pointer;
-  transition:.4s ease;
+  transition:.3s ease;
   backdrop-filter:blur(10px);
+  z-index:10;
 }
 
 .back:hover{
@@ -53,20 +56,13 @@ body{
 /* MAIN CARD */
 .card{
   max-width:860px;
-  padding:90px 100px;
-  background:linear-gradient(
-    to bottom right,
-    rgba(255,245,248,.9),
-    rgba(255,228,236,.8)
-  );
+  width:100%;
+  padding:80px 90px;
+  background:linear-gradient(to bottom right,rgba(255,245,248,.9),rgba(255,228,236,.8));
   border-radius:38px;
   border:1.5px solid rgba(255,170,195,.9);
-
-  box-shadow:
-    0 0 0 6px rgba(255,210,225,.45),
-    0 40px 100px rgba(90,10,40,.5);
-
-  animation:fadeUp 2s ease forwards;
+  box-shadow:0 0 0 6px rgba(255,210,225,.45),0 40px 100px rgba(90,10,40,.5);
+  animation:fadeUp 1.8s ease forwards;
 }
 
 @keyframes fadeUp{
@@ -77,41 +73,49 @@ body{
 /* TITLE */
 .title{
   font-family:'Great Vibes',cursive;
-  font-size:3.1rem;
+  font-size:3rem;
   color:#6b1d34;
   text-align:center;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
 /* TEXT */
 .text{
   font-family:'Great Vibes',cursive;
   font-size:2rem;
-  line-height:2.1;
+  line-height:2;
   color:#6b1d34;
   text-align:center;
   text-shadow:0 1px 6px rgba(255,180,200,.45);
+}
+
+/* 📱 TABLET */
+@media (max-width:768px){
+  .card{padding:60px 50px;border-radius:28px;}
+  .title{font-size:2.4rem;}
+  .text{font-size:1.6rem;}
+}
+
+/* 📱 MOBILE */
+@media (max-width:480px){
+  .card{padding:45px 28px;}
+  .title{font-size:2rem;}
+  .text{font-size:1.35rem;line-height:1.8;}
+  .back{top:15px;left:15px;}
 }
 </style>
 </head>
 
 <body>
 
-<button class="back" onclick="window.location.href='dashboard.html'">
-  Back
-</button>
+<button class="back" onclick="window.location.href='dashboard.html'">Back</button>
 
 <div class="card">
   <div class="title">Chocolate Day</div>
-
   <div class="text">
     Just like chocolate, loving you feels rich and comforting.<br><br>
-
-    Sweet in the little moments,
-    deep in the ones that matter the most.<br><br>
-
-    Every piece reminds me
-    how beautifully you melt into my heart.
+    Sweet in the little moments, deep in the ones that matter the most.<br><br>
+    Every piece reminds me how beautifully you melt into my heart.
   </div>
 </div>
 

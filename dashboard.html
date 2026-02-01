@@ -23,6 +23,7 @@ body{
   background:
     linear-gradient(to bottom,rgba(0,0,0,.75),rgba(45,10,30,.75)),
     url("rose2.jpg") center/cover fixed no-repeat;
+  overflow-x:hidden;
 }
 
 /* SECTION */
@@ -31,9 +32,7 @@ section{
 }
 
 /* FADE */
-.fade{
-  animation:fadeUp 1.8s ease both;
-}
+.fade{animation:fadeUp 1.8s ease both;}
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px);}
   to{opacity:1;transform:translateY(0);}
@@ -52,7 +51,7 @@ section{
   overflow:hidden;
   position:relative;
   cursor:pointer;
-  transition:.7s ease;
+  transition:.6s ease;
   box-shadow:0 30px 70px rgba(0,0,0,.6);
 }
 
@@ -64,7 +63,7 @@ section{
   background-size:cover;
   background-position:center;
   filter:brightness(.55);
-  transition:.7s ease;
+  transition:.6s ease;
 }
 
 .day::after{
@@ -84,33 +83,20 @@ section{
   z-index:2;
 }
 
-.day:hover{
-  transform:translateY(-16px);
-}
-.day:hover::before{
-  filter:brightness(.75);
-}
+.day:hover{transform:translateY(-12px);}
+.day:hover::before{filter:brightness(.75);}
 
-/* ================= CENTER LETTER CARD ================= */
+/* ================= LETTER ================= */
 .container{
   max-width:900px;
   margin:auto;
   padding:80px 90px;
   text-align:center;
-
-  background:linear-gradient(
-    to bottom right,
-    rgba(255,245,248,.9),
-    rgba(255,228,236,.8)
-  );
-
+  background:linear-gradient(to bottom right,rgba(255,245,248,.9),rgba(255,228,236,.8));
   backdrop-filter:blur(18px);
   border-radius:38px;
-
   border:1.5px solid rgba(255,170,195,.9);
-  box-shadow:
-    0 0 0 6px rgba(255,210,225,.45),
-    0 35px 90px rgba(100,10,40,.45);
+  box-shadow:0 0 0 6px rgba(255,210,225,.45),0 35px 90px rgba(100,10,40,.45);
 }
 
 .letter-text{
@@ -136,75 +122,82 @@ section{
   border:1px solid rgba(255,255,255,.15);
   font-size:1.05rem;
   line-height:1.6;
-  transition:.6s ease;
+  transition:.5s ease;
 }
 
 .quote:hover{
-  transform:translateY(-12px);
+  transform:translateY(-10px);
   box-shadow:0 25px 55px rgba(242,161,179,.35);
+}
+
+/* ================= 📱 TABLET ================= */
+@media (max-width:900px){
+  section{padding:80px 8%;}
+  .container{padding:60px 50px;}
+  .letter-text{font-size:1.6rem;}
+}
+
+/* ================= 📱 MOBILE ================= */
+@media (max-width:600px){
+  section{padding:60px 6%;}
+  .week{gap:25px;}
+  .day{height:240px;border-radius:22px;}
+  .day span{font-size:1.1rem;}
+
+  .container{
+    padding:40px 28px;
+    border-radius:26px;
+  }
+
+  .letter-text{
+    font-size:1.35rem;
+    line-height:1.8;
+  }
+
+  .quote{
+    padding:30px 24px;
+    font-size:.95rem;
+  }
+}
+
+/* ================= SMALL PHONES ================= */
+@media (max-width:420px){
+  .letter-text{font-size:1.2rem;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= VALENTINE WEEK ================= -->
 <section class="fade">
   <div class="week">
-
-    <div class="day" onclick="go('roseday.html')" style="--bg:url('https://img.freepik.com/premium-photo/cropped-man-arms-hold-big-one-hundred-red-bright-roses_274222-27228.jpg')">
-      <span>Rose Day</span>
-    </div>
-
-    <div class="day" onclick="go('proposeday.html')" style="--bg:url('https://d3pc1xvrcw35tl.cloudfront.net/ln/images/420x315/74004000_202402686696.jpg')">
-      <span>Propose Day</span>
-    </div>
-
-    <div class="day" onclick="go('hugday.html')" style="--bg:url('https://i.pinimg.com/564x/21/57/eb/2157eb3446d78e985eb18e1b76de8646.jpg')">
-      <span>Hug Day</span>
-    </div>
-
-    <div class="day" onclick="go('kissday.html')" style="--bg:url('https://img.tatacliq.com/images/i15//437Wx649H/MP000000020871482_437Wx649H_202401211952481.jpeg')">
-      <span>Kiss Day</span>
-    </div>
-
-    <div class="day" onclick="go('promiseday.html')" style="--bg:url('https://img.freepik.com/free-vector/hand-drawn-pinky-promise-concept_23-2147884643.jpg?semt=ais_user_personalization&w=740&q=80')">
-      <span>Promise Day</span>
-    </div>
-
-    <div class="day" onclick="go('chocolateday.html')" style="--bg:url('https://img.freepik.com/free-photo/flat-lay-delicious-chocolate-tablets-arrangement_23-2149349242.jpg?semt=ais_hybrid&w=740&q=80')">
-      <span>Chocolate Day</span>
-    </div>
-
-    <div class="day" onclick="go('valentineday.html')" style="--bg:url('https://www.shutterstock.com/image-vector/silhouette-dancing-couple-elegant-lift-600nw-2534677193.jpg')">
-      <span>Valentine Day</span>
-    </div>
-
+    <div class="day" onclick="go('roseday.html')" style="--bg:url('https://img.freepik.com/premium-photo/cropped-man-arms-hold-big-one-hundred-red-bright-roses_274222-27228.jpg')"><span>Rose Day</span></div>
+    <div class="day" onclick="go('proposeday.html')" style="--bg:url('https://d3pc1xvrcw35tl.cloudfront.net/ln/images/420x315/74004000_202402686696.jpg')"><span>Propose Day</span></div>
+    <div class="day" onclick="go('hugday.html')" style="--bg:url('https://i.pinimg.com/564x/21/57/eb/2157eb3446d78e985eb18e1b76de8646.jpg')"><span>Hug Day</span></div>
+    <div class="day" onclick="go('kissday.html')" style="--bg:url('https://img.tatacliq.com/images/i15//437Wx649H/MP000000020871482_437Wx649H_202401211952481.jpeg')"><span>Kiss Day</span></div>
+    <div class="day" onclick="go('promiseday.html')" style="--bg:url('https://img.freepik.com/free-vector/hand-drawn-pinky-promise-concept_23-2147884643.jpg')"><span>Promise Day</span></div>
+    <div class="day" onclick="go('chocolateday.html')" style="--bg:url('https://img.freepik.com/free-photo/flat-lay-delicious-chocolate-tablets-arrangement_23-2149349242.jpg')"><span>Chocolate Day</span></div>
+    <div class="day" onclick="go('valentineday.html')" style="--bg:url('https://www.shutterstock.com/image-vector/silhouette-dancing-couple-elegant-lift-600nw-2534677193.jpg')"><span>Valentine Day</span></div>
   </div>
 </section>
 
-<!-- ================= LETTER ================= -->
 <section class="fade">
   <div class="container">
     <div class="letter-text">
       My Love,<br><br>
       From the day you came into my life, everything feels brighter and more beautiful.
       Your smile fixes my worst days. Your voice feels like peace. Your presence feels like home.<br><br>
-
       You are not just beautiful by face — your heart is pure magic.
       Sometimes I sit quietly and wonder how I got this lucky.<br><br>
-
       Your eyes are my favorite place.<br>
       Your smile is my sunshine.<br>
       Your laugh is my favorite sound.<br><br>
-
       This little digital world is only a reflection of how beautiful you make my real one.<br><br>
       Forever yours
     </div>
   </div>
 </section>
 
-<!-- ================= QUOTES ================= -->
 <section class="fade">
   <div class="quotes">
     <div class="quote">You are my today and all of my tomorrows.</div>
@@ -215,9 +208,7 @@ section{
 </section>
 
 <script>
-function go(page){
-  window.location.href = page;
-}
+function go(page){ window.location.href = page; }
 </script>
 
 </body>
