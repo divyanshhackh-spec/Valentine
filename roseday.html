@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rose Day</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --rose:#f2a1b3;
+  --rose-soft:#ffd6df;
+  --deep:#0a0508;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Playfair Display',serif;
+  color:#f8f2f4;
+
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.7),rgba(45,10,30,.8)),
+    url("https://img.freepik.com/premium-photo/cropped-man-arms-hold-big-one-hundred-red-bright-roses_274222-27228.jpg")
+    center/cover no-repeat fixed;
+}
+
+/* BACK BUTTON */
+.back{
+  position:fixed;
+  top:30px;
+  left:30px;
+  padding:10px 18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  font-size:.9rem;
+  cursor:pointer;
+  transition:.4s ease;
+  backdrop-filter:blur(10px);
+}
+
+.back:hover{
+  background:rgba(255,255,255,.25);
+}
+
+/* MAIN CARD */
+.card{
+  max-width:820px;
+  padding:80px 90px;
+  background:linear-gradient(
+    to bottom right,
+    rgba(255,245,248,.9),
+    rgba(255,228,236,.8)
+  );
+  border-radius:38px;
+  border:1.5px solid rgba(255,170,195,.9);
+
+  box-shadow:
+    0 0 0 6px rgba(255,210,225,.45),
+    0 40px 100px rgba(90,10,40,.5);
+
+  animation:fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* TITLE */
+.title{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  color:#6b1d34;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* TEXT */
+.text{
+  font-family:'Great Vibes',cursive;
+  font-size:1.9rem;
+  line-height:2;
+  color:#6b1d34;
+  text-align:center;
+  text-shadow:0 1px 6px rgba(255,180,200,.45);
+}
+</style>
+</head>
+
+<body>
+
+<button class="back" onclick="window.location.href='dashboard.html'">
+  Back
+</button>
+
+<div class="card">
+  <div class="title">Rose Day</div>
+
+  <div class="text">
+    Every rose carries a piece of my heart.<br><br>
+    Just like these roses, my love for you is gentle,
+    beautiful, and endless.<br><br>
+    Each petal is a reminder of how special you are,
+    and how deeply you are loved.
+  </div>
+</div>
+
+</body>
+</html>
