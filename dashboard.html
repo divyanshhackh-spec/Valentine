@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Forever Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ===== BODY ===== */
+body{
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  background:#000;
+  overflow-x:hidden;
+}
+
+/* ===== DARK ROMANTIC BACKGROUND ===== */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top,
+      rgba(140,20,60,.45),
+      rgba(40,0,30,.75),
+      #000);
+  animation:slowPulse 12s ease-in-out infinite;
+  z-index:-3;
+}
+
+@keyframes slowPulse{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.1)}
+}
+
+/* ===== FLOATING SPARKLES ===== */
+.sparkle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:rgba(255,190,210,.8);
+  border-radius:50%;
+  filter:blur(1px);
+  animation:float 10s linear infinite;
+  z-index:-2;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero-content{
+  animation:fadeIn 3s ease forwards;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:4rem;
+  text-shadow:
+    0 0 30px rgba(255,120,170,.6),
+    0 0 60px rgba(180,40,90,.4);
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:1.3rem;
+  opacity:.85;
+}
+
+/* ===== BLOOMING ROSE (ABSTRACT) ===== */
+.rose{
+  margin:0 auto 40px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,
+      rgba(255,120,160,.9),
+      rgba(140,20,60,.8),
+      rgba(60,0,30,.9));
+  box-shadow:
+    0 0 30px rgba(255,120,170,.8),
+    0 0 70px rgba(180,40,90,.7);
+  animation:bloom 6s ease-in-out infinite;
+}
+
+@keyframes bloom{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:120px 9%;
+}
+
+/* ===== TITLES ===== */
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  text-align:center;
+  margin-bottom:70px;
+  text-shadow:0 0 35px rgba(255,120,170,.6);
+}
+
+/* ===== GLASS BOARD ===== */
+.board{
+  background:rgba(20,0,15,.75);
+  backdrop-filter:blur(18px);
+  border-radius:50px;
+  padding:80px;
+  border:2px solid rgba(255,140,180,.6);
+  box-shadow:
+    0 0 0 6px rgba(120,20,60,.25),
+    0 40px 100px rgba(0,0,0,.8);
+  margin-bottom:150px;
+}
+
+/* ===== VALENTINE WEEK ===== */
+.week{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:40px;
+}
+
+.day-card{
+  height:200px;
+  border-radius:35px;
+  background:
+    linear-gradient(145deg,
+      rgba(160,20,60,.9),
+      rgba(60,0,30,.95));
+  box-shadow:
+    inset 0 0 25px rgba(255,255,255,.15),
+    0 30px 70px rgba(0,0,0,.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:all .7s ease;
+}
+
+.day-card:hover{
+  transform:translateY(-18px) scale(1.04);
+  box-shadow:0 45px 90px rgba(180,40,90,.9);
+}
+
+.day-card span{
+  font-size:2.5rem;
+  display:block;
+  text-align:center;
+}
+
+.day-card h3{
+  margin-top:12px;
+  font-family:'Playfair Display',serif;
+  text-align:center;
+}
+
+/* ===== LOVE LETTER ===== */
+.letter{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;
+  line-height:2.1;
+  text-align:center;
+  color:#ffd6e3;
+}
+
+/* ===== FADE IN ===== */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- Sparkles -->
+<div class="sparkle" style="left:10%;animation-delay:0s"></div>
+<div class="sparkle" style="left:40%;animation-delay:3s"></div>
+<div class="sparkle" style="left:70%;animation-delay:6s"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="rose"></div>
+    <h1>My Forever Valentine ❤️</h1>
+    <p>A little digital universe made with love… just for you</p>
+  </div>
+</div>
+
+<!-- VALENTINE WEEK -->
+<section>
+  <h2 class="section-title">Valentine Week 💖</h2>
+  <div class="board">
+    <div class="week">
+      <a class="day-card" href="rose-day.html"><div><span>🌹</span><h3>Rose Day</h3></div></a>
+      <a class="day-card" href="propose-day.html"><div><span>💍</span><h3>Propose Day</h3></div></a>
+      <a class="day-card" href="hug-day.html"><div><span>🤗</span><h3>Hug Day</h3></div></a>
+      <a class="day-card" href="kiss-day.html"><div><span>💋</span><h3>Kiss Day</h3></div></a>
+      <a class="day-card" href="promise-day.html"><div><span>💖</span><h3>Promise Day</h3></div></a>
+      <a class="day-card" href="chocolate-day.html"><div><span>🍫</span><h3>Chocolate Day</h3></div></a>
+      <a class="day-card" href="valentine-day.html"><div><span>❤️</span><h3>Valentine’s Day</h3></div></a>
+    </div>
+  </div>
+
+  <!-- LOVE LETTER -->
+  <div class="board">
+    <div class="letter">
+      My Love,<br><br>
+      From the day you came into my life, everything feels brighter.
+      Your smile fixes my worst days. Your voice feels like peace.
+      Your presence feels like home.<br><br>
+      This little digital world is just a reflection of how beautiful
+      you make my real one.<br><br>
+      Forever yours ❤️
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
