@@ -8,60 +8,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ========== THEME ========== */
 :root{
   --rose:#f2a1b3;
   --rose-soft:#ffd6df;
-  --deep:#0a0508;
+  --glass:rgba(255,245,248,.9);
+  --shadow:rgba(110,10,45,.5);
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box}
 
+/* ========== BODY ========== */
 body{
   font-family:'Playfair Display',serif;
-  color:#f8f2f4;
+  color:#fff;
   background:
-    linear-gradient(to bottom,rgba(0,0,0,.75),rgba(45,10,30,.75)),
+    linear-gradient(to bottom,rgba(0,0,0,.7),rgba(45,10,30,.8)),
     url("rose2.jpg") center/cover fixed no-repeat;
   overflow-x:hidden;
 }
 
-/* SECTION */
+/* ========== SECTION ========== */
 section{
-  padding:100px 12%;
+  padding:110px 12%;
 }
 
-/* FADE */
-.fade{animation:fadeUp 1.8s ease both;}
+/* ========== FADE IN ========== */
+.fade{
+  animation:fadeUp 1.8s ease both;
+}
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
+  from{opacity:0;transform:translateY(50px);}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* ================= WEEK ================= */
+/* ========== WEEK GRID ========== */
 .week{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:45px;
 }
 
 .day{
-  height:310px;
-  border-radius:30px;
-  overflow:hidden;
   position:relative;
+  height:330px;
+  border-radius:36px;
+  overflow:hidden;
   cursor:pointer;
-  transition:.6s ease;
-  box-shadow:0 30px 70px rgba(0,0,0,.6);
+  transition:.65s ease;
+  box-shadow:0 40px 90px rgba(0,0,0,.65);
 }
 
 .day::before{
   content:"";
   position:absolute;
   inset:0;
-  background-image:var(--bg);
-  background-size:cover;
-  background-position:center;
+  background:var(--bg) center/cover no-repeat;
   filter:brightness(.55);
   transition:.6s ease;
 }
@@ -70,105 +73,92 @@ section{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.2));
+  background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.2));
 }
 
 .day span{
   position:absolute;
-  bottom:30px;
+  bottom:34px;
   width:100%;
   text-align:center;
-  font-size:1.4rem;
+  font-size:1.5rem;
   letter-spacing:1px;
   z-index:2;
 }
 
-.day:hover{transform:translateY(-12px);}
-.day:hover::before{filter:brightness(.75);}
+.day:hover{
+  transform:translateY(-16px) scale(1.03);
+}
+.day:hover::before{
+  filter:brightness(.8);
+}
 
-/* ================= LETTER ================= */
+/* ========== LETTER ========== */
 .container{
-  max-width:900px;
+  max-width:950px;
   margin:auto;
-  padding:80px 90px;
-  text-align:center;
-  background:linear-gradient(to bottom right,rgba(255,245,248,.9),rgba(255,228,236,.8));
+  padding:90px 100px;
+  background:var(--glass);
   backdrop-filter:blur(18px);
-  border-radius:38px;
-  border:1.5px solid rgba(255,170,195,.9);
-  box-shadow:0 0 0 6px rgba(255,210,225,.45),0 35px 90px rgba(100,10,40,.45);
+  border-radius:44px;
+  border:2px solid rgba(255,175,200,.9);
+  box-shadow:
+    0 0 0 8px rgba(255,210,225,.45),
+    0 45px 120px var(--shadow);
 }
 
 .letter-text{
   font-family:'Great Vibes',cursive;
-  font-size:1.8rem;
-  line-height:2;
+  font-size:1.9rem;
+  line-height:2.1;
   color:#6b1d34;
-  text-shadow:0 1px 6px rgba(255,180,200,.45);
-  text-align:left;
+  text-shadow:0 1px 6px rgba(255,180,200,.4);
 }
 
-/* ================= QUOTES ================= */
+/* ========== QUOTES ========== */
 .quotes{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
 }
 
 .quote{
-  padding:45px 40px;
-  border-radius:26px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
+  padding:50px 44px;
+  border-radius:32px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
   font-size:1.05rem;
-  line-height:1.6;
-  transition:.5s ease;
+  line-height:1.65;
+  transition:.6s ease;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
 }
 
 .quote:hover{
-  transform:translateY(-10px);
-  box-shadow:0 25px 55px rgba(242,161,179,.35);
+  transform:translateY(-14px);
+  box-shadow:0 40px 90px rgba(242,161,179,.45);
 }
 
-/* ================= 📱 TABLET ================= */
-@media (max-width:900px){
-  section{padding:80px 8%;}
-  .container{padding:60px 50px;}
-  .letter-text{font-size:1.6rem;}
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+  section{padding:85px 8%}
+  .container{padding:65px 55px}
+  .letter-text{font-size:1.6rem}
 }
 
-/* ================= 📱 MOBILE ================= */
-@media (max-width:600px){
-  section{padding:60px 6%;}
-  .week{gap:25px;}
-  .day{height:240px;border-radius:22px;}
-  .day span{font-size:1.1rem;}
-
-  .container{
-    padding:40px 28px;
-    border-radius:26px;
-  }
-
-  .letter-text{
-    font-size:1.35rem;
-    line-height:1.8;
-  }
-
-  .quote{
-    padding:30px 24px;
-    font-size:.95rem;
-  }
-}
-
-/* ================= SMALL PHONES ================= */
-@media (max-width:420px){
-  .letter-text{font-size:1.2rem;}
+@media(max-width:600px){
+  section{padding:65px 6%}
+  .day{height:250px;border-radius:26px}
+  .day span{font-size:1.15rem}
+  .container{padding:42px 28px;border-radius:28px}
+  .letter-text{font-size:1.35rem}
+  .quote{padding:32px 26px;font-size:.95rem}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ========== WEEK ========== -->
 <section class="fade">
   <div class="week">
     <div class="day" onclick="go('roseday.html')" style="--bg:url('https://img.freepik.com/premium-photo/cropped-man-arms-hold-big-one-hundred-red-bright-roses_274222-27228.jpg')"><span>Rose Day</span></div>
@@ -181,6 +171,7 @@ section{
   </div>
 </section>
 
+<!-- ========== LETTER ========== -->
 <section class="fade">
   <div class="container">
     <div class="letter-text">
@@ -198,6 +189,7 @@ section{
   </div>
 </section>
 
+<!-- ========== QUOTES ========== -->
 <section class="fade">
   <div class="quotes">
     <div class="quote">You are my today and all of my tomorrows.</div>
@@ -208,7 +200,9 @@ section{
 </section>
 
 <script>
-function go(page){ window.location.href = page; }
+function go(page){
+  window.location.href = page;
+}
 </script>
 
 </body>

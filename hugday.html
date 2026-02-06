@@ -9,30 +9,27 @@
 
 <style>
 :root{
-  --rose:#f2a1b3;
-  --rose-soft:#ffd6df;
-  --deep:#0a0508;
+  --hug:#f3a9b8;
+  --soft:#ffe0e8;
+  --glass:rgba(255,245,248,.94);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   min-height:100vh;
+  font-family:'Playfair Display',serif;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.75),rgba(55,10,35,.9)),
+    url("https://i.pinimg.com/564x/21/57/eb/2157eb3446d78e985eb18e1b76de8646.jpg")
+    center/cover fixed no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:'Playfair Display',serif;
-  color:#f8f2f4;
-  padding:20px;
-  overflow-x:hidden;
-
-  background:
-    linear-gradient(to bottom,rgba(0,0,0,.7),rgba(45,10,30,.8)),
-    url("https://i.pinimg.com/564x/21/57/eb/2157eb3446d78e985eb18e1b76de8646.jpg")
-    center/cover no-repeat fixed;
+  overflow:hidden;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back{
   position:fixed;
   top:20px;
@@ -42,66 +39,119 @@ body{
   background:rgba(255,255,255,.15);
   border:1px solid rgba(255,255,255,.3);
   color:#fff;
-  font-size:.85rem;
-  cursor:pointer;
-  transition:.3s ease;
   backdrop-filter:blur(10px);
+  cursor:pointer;
+  z-index:20;
+}
+
+/* FLOATING HUG HEARTS */
+.float{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
+
+.float img{
+  position:absolute;
+  bottom:-15%;
+  width:60px;
+  opacity:.45;
+  animation:floatUp linear infinite;
+}
+
+.float img:nth-child(1){left:8%;animation-duration:20s;}
+.float img:nth-child(2){left:25%;width:45px;animation-duration:26s;}
+.float img:nth-child(3){left:45%;width:70px;animation-duration:22s;}
+.float img:nth-child(4){left:65%;width:50px;animation-duration:28s;}
+.float img:nth-child(5){left:85%;width:65px;animation-duration:24s;}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.7);opacity:0;}
+  10%{opacity:.45;}
+  100%{transform:translateY(-120vh) scale(1.2);opacity:0;}
+}
+
+/* CARD */
+.card{
+  max-width:880px;
+  width:100%;
+  padding:95px 95px;
+  background:var(--glass);
+  border-radius:50px;
+  border:2px solid rgba(255,170,195,.95);
+  box-shadow:
+    0 0 0 8px rgba(255,215,230,.45),
+    0 55px 140px rgba(100,10,50,.6);
+  text-align:center;
+  animation:fadeIn 2s ease forwards;
   z-index:10;
 }
 
-.back:hover{
-  background:rgba(255,255,255,.25);
-}
-
-/* MAIN CARD */
-.card{
-  max-width:840px;
-  width:100%;
-  padding:80px 90px;
-  background:linear-gradient(to bottom right,rgba(255,245,248,.9),rgba(255,228,236,.8));
-  border-radius:38px;
-  border:1.5px solid rgba(255,170,195,.9);
-  box-shadow:0 0 0 6px rgba(255,210,225,.45),0 40px 100px rgba(90,10,40,.5);
-  animation:fadeUp 1.8s ease forwards;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(60px);}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* TITLE */
-.title{
-  font-family:'Great Vibes',cursive;
-  font-size:3rem;
-  color:#6b1d34;
-  text-align:center;
-  margin-bottom:30px;
+/* HUG IMAGE */
+.hug-box{
+  margin-bottom:40px;
+  animation:hugPulse 4s ease-in-out infinite;
+}
+
+.hug-box img{
+  width:190px;
+  filter:
+    drop-shadow(0 0 35px rgba(255,170,200,.85))
+    drop-shadow(0 0 70px rgba(255,200,220,.55));
+}
+
+@keyframes hugPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
 }
 
 /* TEXT */
+.pre{
+  font-family:'Great Vibes',cursive;
+  font-size:2.3rem;
+  color:#7a2740;
+  margin-bottom:28px;
+}
+
+.title{
+  font-family:'Great Vibes',cursive;
+  font-size:3.4rem;
+  color:#6b1d34;
+  margin-bottom:35px;
+}
+
 .text{
   font-family:'Great Vibes',cursive;
-  font-size:2rem;
-  line-height:2;
+  font-size:2.05rem;
+  line-height:2.1;
   color:#6b1d34;
-  text-align:center;
-  text-shadow:0 1px 6px rgba(255,180,200,.45);
 }
 
-/* 📱 TABLET */
-@media (max-width:768px){
-  .card{padding:60px 50px;border-radius:28px;}
-  .title{font-size:2.4rem;}
-  .text{font-size:1.6rem;}
+.closing{
+  margin-top:40px;
+  font-family:'Great Vibes',cursive;
+  font-size:2.2rem;
+  color:#b53b5c;
+  text-shadow:0 0 15px rgba(255,160,190,.6);
 }
 
-/* 📱 MOBILE */
-@media (max-width:480px){
-  .card{padding:45px 28px;}
-  .title{font-size:2rem;}
-  .text{font-size:1.35rem;line-height:1.8;}
-  .back{top:15px;left:15px;}
+/* RESPONSIVE */
+@media(max-width:768px){
+  .card{padding:65px 45px;}
+  .title{font-size:2.6rem;}
+  .pre,.text{font-size:1.6rem;}
+  .closing{font-size:1.9rem;}
+}
+
+@media(max-width:480px){
+  .card{padding:45px 25px;}
+  .pre,.text{font-size:1.35rem;}
 }
 </style>
 </head>
@@ -110,15 +160,40 @@ body{
 
 <button class="back" onclick="window.location.href='dashboard.html'">Back</button>
 
+<!-- FLOATING HEARTS -->
+<div class="float">
+  <img src="https://pngimg.com/uploads/heart/heart_PNG51342.png">
+  <img src="https://pngimg.com/uploads/heart/heart_PNG51344.png">
+  <img src="https://pngimg.com/uploads/heart/heart_PNG51346.png">
+  <img src="https://pngimg.com/uploads/heart/heart_PNG51348.png">
+  <img src="https://pngimg.com/uploads/heart/heart_PNG51345.png">
+</div>
+
 <div class="card">
-  <div class="title">Hug Day</div>
-  <div class="text">
-    In your arms, the world feels quiet.<br><br>
-    Every worry fades, every fear softens,
-    and all that remains is warmth and peace.<br><br>
-    Your hug is my safest place,
-    and my favorite feeling.
+
+  <!-- HUG IMAGE -->
+  <div class="hug-box">
+    <img src="hug.png" alt="Hug">
   </div>
+
+  <div class="pre">
+    Some feelings don’t need words…
+  </div>
+
+  <div class="title">Hug Day</div>
+
+  <div class="text">
+    In your arms, the world finally feels quiet.<br><br>
+    Every fear softens, every worry fades,
+    and my heart remembers where it belongs.<br><br>
+    Your hug is not just comfort —
+    it is home.
+  </div>
+
+  <div class="closing">
+    Hold me, today and always.
+  </div>
+
 </div>
 
 </body>
