@@ -50,7 +50,7 @@ promiseday.html	Commitment and forever promises
 chocolateday.html	Sweetness and warmth
 valentineday.html	Final emotional reveal
 Folder Structure
-'''
+```
 Forever-Valentine/
 │
 ├── dashboard.html
@@ -64,7 +64,7 @@ Forever-Valentine/
 │
 ├── rose2.jpg
 └── README.md
-'''
+```
 ## Technologies Used
 
 HTML5
