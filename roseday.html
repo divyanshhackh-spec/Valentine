@@ -8,49 +8,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ========= THEME ========= */
 :root{
   --rose:#d14b6a;
   --rose-soft:#f7b2c4;
-  --glass:rgba(255,245,248,.92);
+  --glass:rgba(255,245,248,.94);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+/* ========= RESET ========= */
+*{margin:0;padding:0;box-sizing:border-box}
 
+/* ========= BODY ========= */
 body{
-  min-height:100vh;
+  min-height:100svh;
   font-family:'Playfair Display',serif;
   background:
     linear-gradient(to bottom,rgba(0,0,0,.78),rgba(45,10,30,.88)),
     url("https://img.freepik.com/premium-photo/cropped-man-arms-hold-big-one-hundred-red-bright-roses_274222-27228.jpg")
-    center/cover fixed no-repeat;
+    center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
+  padding:20px;
 }
 
-/* BACK BUTTON */
+/* ========= BACK BUTTON ========= */
 .back{
   position:fixed;
-  top:20px;
-  left:20px;
+  top:18px;
+  left:18px;
   padding:8px 16px;
   border-radius:20px;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.35);
   color:#fff;
   backdrop-filter:blur(10px);
   cursor:pointer;
   z-index:20;
+  font-size:.85rem;
 }
 
-/* FLOATING PETALS */
+/* ========= FLOATING PETALS ========= */
 .petals{
   position:fixed;
   inset:0;
   pointer-events:none;
   overflow:hidden;
-  z-index:5;
+  z-index:3;
 }
 
 .petals img{
@@ -62,115 +67,104 @@ body{
 }
 
 /* PETAL VARIATIONS */
-.petals img:nth-child(1){left:3%;  width:40px; animation-duration:22s; animation-delay:-2s;}
-.petals img:nth-child(2){left:10%; width:55px; animation-duration:30s; animation-delay:-8s;}
-.petals img:nth-child(3){left:18%; width:42px; animation-duration:26s; animation-delay:-14s;}
-.petals img:nth-child(4){left:26%; width:65px; animation-duration:34s; animation-delay:-18s;}
-.petals img:nth-child(5){left:34%; width:48px; animation-duration:28s; animation-delay:-22s;}
-.petals img:nth-child(6){left:42%; width:75px; animation-duration:38s; animation-delay:-26s;}
-.petals img:nth-child(7){left:50%; width:40px; animation-duration:24s; animation-delay:-6s;}
-.petals img:nth-child(8){left:58%; width:60px; animation-duration:32s; animation-delay:-12s;}
-.petals img:nth-child(9){left:66%; width:45px; animation-duration:27s; animation-delay:-20s;}
-.petals img:nth-child(10){left:74%; width:70px; animation-duration:36s; animation-delay:-28s;}
-.petals img:nth-child(11){left:82%; width:50px; animation-duration:29s; animation-delay:-16s;}
-.petals img:nth-child(12){left:90%; width:65px; animation-duration:34s; animation-delay:-24s;}
+.petals img:nth-child(n){
+  width:clamp(28px,5vw,70px);
+}
+.petals img:nth-child(1){left:2%;animation-duration:22s}
+.petals img:nth-child(2){left:10%;animation-duration:28s}
+.petals img:nth-child(3){left:18%;animation-duration:24s}
+.petals img:nth-child(4){left:26%;animation-duration:32s}
+.petals img:nth-child(5){left:34%;animation-duration:26s}
+.petals img:nth-child(6){left:42%;animation-duration:36s}
+.petals img:nth-child(7){left:50%;animation-duration:24s}
+.petals img:nth-child(8){left:58%;animation-duration:30s}
+.petals img:nth-child(9){left:66%;animation-duration:27s}
+.petals img:nth-child(10){left:74%;animation-duration:34s}
+.petals img:nth-child(11){left:82%;animation-duration:29s}
+.petals img:nth-child(12){left:90%;animation-duration:33s}
 
 /* NATURAL FALL */
 @keyframes fall{
-  0%{
-    transform:translateX(0) translateY(-10%) rotate(0deg);
-    opacity:0;
-  }
-  8%{opacity:.55;}
-  100%{
-    transform:translateX(90px) translateY(120vh) rotate(360deg);
-    opacity:.1;
-  }
+  0%{transform:translateY(-10%) rotate(0deg);opacity:0}
+  10%{opacity:.55}
+  100%{transform:translateY(120vh) rotate(360deg);opacity:.1}
 }
 
-/* MAIN CARD */
+/* ========= MAIN CARD ========= */
 .card{
   max-width:900px;
   width:100%;
-  padding:90px 100px;
+  padding:clamp(40px,6vw,90px) clamp(28px,6vw,100px);
   background:var(--glass);
-  border-radius:45px;
+  border-radius:clamp(28px,5vw,45px);
   border:2px solid rgba(255,170,195,.95);
   box-shadow:
-    0 0 0 7px rgba(255,210,225,.45),
-    0 50px 130px rgba(90,10,40,.6);
+    0 0 0 6px rgba(255,210,225,.45),
+    0 40px 120px rgba(90,10,40,.55);
   text-align:center;
-  animation:cardIn 2.2s ease forwards;
+  animation:cardIn 1.8s ease forwards;
   z-index:10;
 }
 
 @keyframes cardIn{
-  from{opacity:0;transform:translateY(70px);}
-  to{opacity:1;transform:translateY(0);}
+  from{opacity:0;transform:translateY(60px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-/* ROSE */
+/* ========= ROSE ========= */
 .rose-box{
-  margin-bottom:45px;
+  margin-bottom:35px;
   animation:roseGlow 4s ease-in-out infinite;
 }
-
 .rose-box img{
-  width:170px;
+  width:clamp(110px,22vw,170px);
   filter:drop-shadow(0 0 30px rgba(255,120,160,.8));
 }
-
 @keyframes roseGlow{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.1);}
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
 }
 
-/* TEXT */
+/* ========= TEXT ========= */
 .intro{
   font-family:'Great Vibes',cursive;
-  font-size:2.3rem;
+  font-size:clamp(1.3rem,4vw,2.3rem);
   color:#7a243f;
-  margin-bottom:30px;
+  margin-bottom:26px;
 }
 
 .divider{
-  width:130px;
+  width:120px;
   height:2px;
   background:linear-gradient(to right,transparent,#c06a84,transparent);
-  margin:0 auto 40px;
+  margin:0 auto 35px;
 }
 
 .title{
   font-family:'Great Vibes',cursive;
-  font-size:3.2rem;
+  font-size:clamp(2rem,5vw,3.2rem);
   color:#6b1d34;
-  margin-bottom:30px;
+  margin-bottom:26px;
 }
 
 .text{
   font-family:'Great Vibes',cursive;
-  font-size:2.05rem;
-  line-height:2.15;
+  font-size:clamp(1.25rem,4vw,2.05rem);
+  line-height:1.9;
   color:#6b1d34;
 }
 
 .sign{
-  margin-top:40px;
+  margin-top:35px;
   font-family:'Great Vibes',cursive;
-  font-size:1.9rem;
+  font-size:clamp(1.2rem,3.5vw,1.9rem);
   color:#7a243f;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .card{padding:60px 45px;}
-  .title{font-size:2.5rem;}
-  .intro,.text{font-size:1.6rem;}
-}
-
-@media(max-width:480px){
-  .card{padding:45px 25px;}
-  .intro,.text{font-size:1.35rem;}
+/* ========= MOBILE OPTIMIZATION ========= */
+@media (max-width:480px){
+  body{padding:14px}
+  .back{font-size:.75rem}
 }
 </style>
 </head>
@@ -181,18 +175,9 @@ body{
 
 <!-- FLOATING PETALS -->
 <div class="petals">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
-  <img src="petal.png">
+  <img src="petal.png"><img src="petal.png"><img src="petal.png"><img src="petal.png">
+  <img src="petal.png"><img src="petal.png"><img src="petal.png"><img src="petal.png">
+  <img src="petal.png"><img src="petal.png"><img src="petal.png"><img src="petal.png">
 </div>
 
 <div class="card">
@@ -213,10 +198,8 @@ body{
   <div class="text">
     A rose fades with time,<br>
     but what I feel for you only grows deeper.<br><br>
-
     Its softness reminds me of your kindness.<br>
     Its beauty mirrors the way you light up my world.<br><br>
-
     Today, I give you roses.<br>
     Every day, I give you my heart.
   </div>
